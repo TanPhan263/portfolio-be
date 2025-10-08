@@ -1,76 +1,80 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const menuSchema = new mongoose.Schema({
   text: {
     type: String,
-    required: true,
+    required: true
   },
   url: {
     type: String,
-    required: true,
+    required: true
   },
+  isComingSoon: {
+    type: Boolean,
+    required: false
+  }
 });
 
 const greetingSchema = new mongoose.Schema({
   greetingText: {
     type: String,
-    required: true,
+    required: true
   },
   name: {
     type: String,
-    required: true,
+    required: true
   },
   bioTitle: {
     type: String,
-    required: true,
+    required: true
   },
   bioDescription: {
     type: String,
-    required: true,
+    required: true
   },
   imageDark: {
     type: String,
-    required: true,
+    required: true
   },
   image: {
     type: String,
-    required: true,
+    required: true
   },
   roles: {
     type: [String],
-    required: true,
-  },
+    required: true
+  }
 });
 
 const socialSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true,
+    required: true
   },
   createdAt: {
     type: String,
-    required: true,
+    required: true
   },
   text: {
     type: String,
-    required: true,
+    required: true
   },
   tags: {
     type: [String],
-    required: true,
+    required: true
   },
   images: {
     type: [String],
-    required: true,
+    required: true
   },
   likes: {
     type: Number,
-    required: true,
+    required: true
   },
   comments: {
     type: Number,
-    required: true,
-  },
+    required: true
+  }
 });
 
 const homeSchema = new mongoose.Schema(
@@ -78,11 +82,11 @@ const homeSchema = new mongoose.Schema(
     menu: [menuSchema],
     greeting: {
       type: greetingSchema,
-      required: true,
+      required: true
     },
-    socials: [socialSchema],
+    socials: [socialSchema]
   },
   { timestamps: true }
 );
 
-export default mongoose.model("Home", homeSchema);
+export default mongoose.model('Home', homeSchema);
