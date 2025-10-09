@@ -1,10 +1,11 @@
-import express from "express";
-import { config } from "dotenv";
-import connectDB from "./configs/db.js";
-import homeRouter from "./routes/home.js";
-import experienceRouter from "./routes/experience.js";
-import { errorsHandler } from "./middlewares/errorsHandler.js";
-import cors from "cors";
+import cors from 'cors';
+import { config } from 'dotenv';
+import express from 'express';
+import connectDB from './configs/db.js';
+import { errorsHandler } from './middlewares/errorsHandler.js';
+import blogRouter from './routes/blog.js';
+import experienceRouter from './routes/experience.js';
+import homeRouter from './routes/home.js';
 
 config();
 connectDB();
@@ -14,8 +15,9 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api/home", homeRouter);
-app.use("/api/experience", experienceRouter);
+app.use('/api/home', homeRouter);
+app.use('/api/experience', experienceRouter);
+app.use('/api/blog', blogRouter);
 
 // Catch 404 manually
 app.use((req, res, next) => {
