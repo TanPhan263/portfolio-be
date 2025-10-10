@@ -9,6 +9,15 @@ export const getBlogs = async (req, res, next) => {
   }
 };
 
+export const getBlogById = async (req, res, next) => {
+  try {
+    const data = await Blog.findById(req.params.id);
+    res.status(200).json(data);
+  } catch (error) {
+    next(error);
+  }
+};
+
 export const createBlog = async (req, res, next) => {
   try {
     const newBlog = new Blog(req.body);
